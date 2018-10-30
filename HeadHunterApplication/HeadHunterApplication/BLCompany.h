@@ -16,10 +16,11 @@
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSNumber *numberOfVacancies;
 @property (nonatomic, strong) NSString *logoURL;
+@property (nonatomic, strong) NSNumber *page;
 @property(readonly, copy) NSString *description;
 
 - (id)initWithString:(NSString *)newName andID:(NSString *)newID;
-- (id)initWithDictionary:(NSDictionary *)newDictionary;
+- (id)initWithDictionary:(NSDictionary *)newDictionary/* andPage:(NSNumber *)newPage*/;
 - (void)sayHello;
 @end
 //NS_ASSUME_NONNULL_END

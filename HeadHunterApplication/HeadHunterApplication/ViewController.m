@@ -65,14 +65,22 @@
 
 - (void)processDictionary:(NSDictionary *)json
 {
+ //   NSNumber *page = [json objectForKey:@"page"];
+//    NSNumber *pages = [json objectForKey:@"pages"];
     NSArray *items = [json objectForKey:@"items"];
-    for (NSDictionary *item in items) {
-        BLCompany *company = [[BLCompany alloc] initWithDictionary:item];
-        NSLog(@"add company:<%@>", company); // add company: <Имя>:<ID>
-        [_companies addObject:company];
-    }
-    NSLog(@"");
-}
+   /* NSInteger *i;
+    for(i in pages){
+        count = [NSNumber numberWithInt:i];
+      //  i++;*/
+ //   for(page in pages){
+        for (NSDictionary *item in items) {
+            BLCompany *company = [[BLCompany alloc] initWithDictionary:item /*andPage:page*/];
+            NSLog(@"add company:<%@>", company); // add company: <Имя>:<ID>
+            [_companies addObject:company];
+        }
+            NSLog(@"");
+        }
+//}
 
 - (void)processArray:(NSArray *)json
 {

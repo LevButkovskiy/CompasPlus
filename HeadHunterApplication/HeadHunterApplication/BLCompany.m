@@ -26,7 +26,7 @@
     return self;
 }
 
-- (id)initWithDictionary:(NSDictionary *)newDictionary{
+- (id)initWithDictionary:(NSDictionary *)newDictionary /*andPage:(NSNumber *)newPage*/{
     
     if(self = [super init]){
         self.name = [newDictionary objectForKey:@"name"];
@@ -34,6 +34,8 @@
         self.url = [newDictionary objectForKey:@"url"];
         self.numberOfVacancies = [newDictionary objectForKey:@"open_vacancies"];
         self.logoURL = [newDictionary objectForKey:@"logo_urls"];
+        
+    //    self.page = newPage;
     }
     return self;
 }
