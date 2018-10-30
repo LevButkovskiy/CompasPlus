@@ -39,11 +39,15 @@
 }
 - (IBAction)Stepper:(id)sender {
     _Stepper.minimumValue = 0;
+    _Stepper.maximumValue = 10;
     _ProgressView.progress = _Stepper.value/10;
     _SampleImage.alpha = _Stepper.value/10;
 }
 
 - (void)viewDidLoad {
+    _Stepper.value = 3;
+    _ProgressView.progress = _Stepper.value/10;
+    _SampleImage.alpha = _Stepper.value/10;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
