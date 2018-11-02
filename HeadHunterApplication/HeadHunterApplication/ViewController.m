@@ -65,8 +65,11 @@
 
 - (void)processDictionary:(NSDictionary *)json
 {
- //   NSNumber *page = [json objectForKey:@"page"];
-//    NSNumber *pages = [json objectForKey:@"pages"];
+    BLPages *pages = [[BLPages alloc]initWithDictionary:json];
+    pages.nextPage;
+    NSLog(@"numberThisPage: <%@>", pages.numberThisPage);
+    NSNumber *thisPage = [json objectForKey:@"page"];
+    thisPage = pages.numberThisPage;
     NSArray *items = [json objectForKey:@"items"];
    /* NSInteger *i;
     for(i in pages){
@@ -74,13 +77,12 @@
       //  i++;*/
  //   for(page in pages){
         for (NSDictionary *item in items) {
-            BLCompany *company = [[BLCompany alloc] initWithDictionary:item /*andPage:page*/];
+            BLCompany *company = [[BLCompany alloc] initWithDictionary:item];
             NSLog(@"add company:<%@>", company); // add company: <Имя>:<ID>
             [_companies addObject:company];
         }
             NSLog(@"");
-        }
-//}
+}
 
 - (void)processArray:(NSArray *)json
 {

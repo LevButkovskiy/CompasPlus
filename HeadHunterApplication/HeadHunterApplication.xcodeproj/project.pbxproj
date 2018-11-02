@@ -14,7 +14,7 @@
 		A01DE6E7217A3AC700B2CE72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01DE6E5217A3AC700B2CE72 /* LaunchScreen.storyboard */; };
 		A01DE6EA217A3AC700B2CE72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE6E9217A3AC700B2CE72 /* main.m */; };
 		A01DE6F2217A543E00B2CE72 /* BLCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE6F1217A543E00B2CE72 /* BLCompany.m */; };
-		A0CAD5A02181E63200DDBC6D /* BLCompanies.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CAD59F2181E63200DDBC6D /* BLCompanies.m */; };
+		A07630AA218C5F7E0072C308 /* BLPages.m in Sources */ = {isa = PBXBuildFile; fileRef = A07630A9218C5F7E0072C308 /* BLPages.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +30,8 @@
 		A01DE6E9217A3AC700B2CE72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A01DE6F0217A543E00B2CE72 /* BLCompany.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLCompany.h; sourceTree = "<group>"; };
 		A01DE6F1217A543E00B2CE72 /* BLCompany.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLCompany.m; sourceTree = "<group>"; };
-		A0CAD59E2181E63200DDBC6D /* BLCompanies.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLCompanies.h; sourceTree = "<group>"; };
-		A0CAD59F2181E63200DDBC6D /* BLCompanies.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLCompanies.m; sourceTree = "<group>"; };
+		A07630A8218C5F7E0072C308 /* BLPages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLPages.h; sourceTree = "<group>"; };
+		A07630A9218C5F7E0072C308 /* BLPages.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLPages.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +66,8 @@
 			children = (
 				A01DE6DA217A3AC600B2CE72 /* AppDelegate.h */,
 				A01DE6DB217A3AC600B2CE72 /* AppDelegate.m */,
-				A0CAD59E2181E63200DDBC6D /* BLCompanies.h */,
-				A0CAD59F2181E63200DDBC6D /* BLCompanies.m */,
+				A07630A8218C5F7E0072C308 /* BLPages.h */,
+				A07630A9218C5F7E0072C308 /* BLPages.m */,
 				A01DE6F0217A543E00B2CE72 /* BLCompany.h */,
 				A01DE6F1217A543E00B2CE72 /* BLCompany.m */,
 				A01DE6DD217A3AC600B2CE72 /* ViewController.h */,
@@ -153,8 +153,8 @@
 			files = (
 				A01DE6DF217A3AC600B2CE72 /* ViewController.m in Sources */,
 				A01DE6EA217A3AC700B2CE72 /* main.m in Sources */,
-				A0CAD5A02181E63200DDBC6D /* BLCompanies.m in Sources */,
 				A01DE6DC217A3AC600B2CE72 /* AppDelegate.m in Sources */,
+				A07630AA218C5F7E0072C308 /* BLPages.m in Sources */,
 				A01DE6F2217A543E00B2CE72 /* BLCompany.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

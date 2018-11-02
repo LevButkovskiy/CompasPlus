@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BLCompany.h"
+#import "BLPages.h"
 
 @interface ViewController : UIViewController
 
