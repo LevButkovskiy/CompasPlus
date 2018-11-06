@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *numberThisPage;
 
 - (id)initWithDictionary:(NSDictionary *)newDictionary;
+- (id)initWithElementsPerPage:(NSNumber *)newElementsPerPage;
 - (void)nextPage;
 
 

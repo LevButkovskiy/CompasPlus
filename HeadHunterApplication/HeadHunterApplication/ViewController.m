@@ -65,11 +65,12 @@
 
 - (void)processDictionary:(NSDictionary *)json
 {
-    BLPages *pages = [[BLPages alloc]initWithDictionary:json];
-    pages.nextPage;
+    BLPages *pages = [[BLPages alloc]initWithDictionary:json]; //Class initialization "BLPages"
+    pages.nextPage; //incrementing number of page
     NSLog(@"numberThisPage: <%@>", pages.numberThisPage);
-    NSNumber *thisPage = [json objectForKey:@"page"];
-    thisPage = pages.numberThisPage;
+    NSNumber *thisPage = [json objectForKey:@"page"]; //thisPage - number of this page in json
+    thisPage = pages.numberThisPage; //this page - incremented value of page number in json
+    [json setValue:thisPage forKey:@"page"]; //check set value for json
     NSArray *items = [json objectForKey:@"items"];
    /* NSInteger *i;
     for(i in pages){
