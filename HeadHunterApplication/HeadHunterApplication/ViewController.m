@@ -22,45 +22,12 @@
     [super viewDidLoad];
 
     _companies = @[].mutableCopy; //[[NSMutableArray alloc] initWithCapacity:0];
-    [self requestData];
-    BLAPI Data = [[BLAPI alloc]init];
+    NSDictionary *session = [BLAPI sharedInstanceWithType:@"employers" onPage:@(0) perPage:@(20)];
+    [self processDictionary:session];
 }
-
 - (void)load
 {
     [self viewDidLoad];
-}
-
-- (void)requestData
-{
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURL *baseURL = [NSURL URLWithString:@"https://api.hh.ru/employers"];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:baseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"error :<%@>", [error.userInfo objectForKey:NSLocalizedDescriptionKey]);
-        } else {
-            
-            NSError *error;
-            id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            
-            if (error) {
-                NSLog(@"error :<%@>", [error.userInfo objectForKey:NSLocalizedDescriptionKey]);
-            } else {
-                NSLog(@"=:\n%@", json);
-                if ([json isKindOfClass:[NSDictionary class]]) {
-                    [self processDictionary:(NSDictionary *)json];
-                } else if ([json isKindOfClass:[NSArray class]]) {
-                    [self processArray:json];
-                } else {
-                    NSLog(@"непонятный класс");
-                }
-            }
-            
-        }
-    }];
-    
-    [dataTask resume];
-    
 }
 
 - (void)processDictionary:(NSDictionary *)json

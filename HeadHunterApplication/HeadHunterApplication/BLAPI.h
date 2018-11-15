@@ -11,13 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BLAPI : NSObject
-@property (nonatomic, copy) void (^blockName)(NSDictionary *json, NSError *error);
-//@property (nonatomic, strong) BLAPI *requestData2;
-+ (BLAPI *)sharedInstance;
+@property (nonatomic, copy) void (^result)(NSDictionary *json, NSError *error);
 
-- (void)requestDataWithOnPage:(NSNumber *)page perPage:(NSNumber *)per_page;
-- (void)processDictionaryWithJson:(NSDictionary *)json andError:(NSError *)error;
-- (NSString *)setUrlWithPage:(NSNumber *)page perpage:(NSNumber *)perpage;
+
++ (BLAPI *)sharedInstanceWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage;
+
+- (void)requestDataForType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage;
+- (NSString *)setUrlWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage;
 
 @end
 

@@ -38,8 +38,4 @@
     return self;
 }
 
-- (void)sayHello {
-    NSLog(@"Hello, World!");
-}
-
 @end

@@ -21,6 +21,6 @@
 
 - (id)initWithString:(NSString *)newName andID:(NSString *)newID;
 - (id)initWithDictionary:(NSDictionary *)newDictionary;
-- (void)sayHello;
+
 @end
 //NS_ASSUME_NONNULL_END

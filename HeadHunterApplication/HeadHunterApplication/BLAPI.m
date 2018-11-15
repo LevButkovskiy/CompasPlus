@@ -9,24 +9,22 @@
 #import "BLAPI.h"
 
 @implementation BLAPI
-/*void (^block) (id) = ^(NSDictionary *json, NSError *error){
-    
-};*/
 
 static BLAPI *dataManager = nil;
 static dispatch_once_t onceToken;
-+ (BLAPI *)sharedInstance
++ (BLAPI *)sharedInstanceWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage
 {
     dispatch_once(&onceToken, ^{
         dataManager = [[BLAPI alloc] init];
+        [dataManager requestDataForType:type onPage:page perPage:perPage];
     });
     return dataManager;
 }
 
-- (void)requestDataWithOnPage:(NSNumber *)page perPage:(NSNumber *)per_page
+- (void)requestDataForType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage
 {
     NSURLSession *session = [NSURLSession sharedSession];
-    NSURL *baseURL = [NSURL URLWithString:[self setUrlWithPage:page perpage:per_page]];
+    NSURL *baseURL = [NSURL URLWithString:[self setUrlWithType:type onPage:page perPage:perPage]];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:baseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             NSLog(@"error :<%@>", [error.userInfo objectForKey:NSLocalizedDescriptionKey]);
@@ -40,7 +38,7 @@ static dispatch_once_t onceToken;
                 NSLog(@"=:\n%@", json);
                 if ([json isKindOfClass:[NSDictionary class]]) {
                     //return json;
-                    self.blockName(json, errorU);
+                    self.result(json, errorU);
                 }
                 else {
                     NSLog(@"непонятный класс");
@@ -53,9 +51,9 @@ static dispatch_once_t onceToken;
     [dataTask resume];
 }
 
-- (NSString *)setUrlWithPage:(NSNumber *)page perpage:(NSNumber *)perpage{
+- (NSString *)setUrlWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage{
     
-    NSString *tmpString = [NSString stringWithFormat:@"%@%@%s%@", @"https://api.hh.ru/employers?per_page=", page, "&page=", perpage];
+    NSString *tmpString = [NSString stringWithFormat:@"%@%@%s%@%s%@", @"https://api.hh.ru/",type, "?per_page=", perPage, "&page=", page];
     return tmpString;
 }
 
