@@ -23,7 +23,7 @@
 
     _companies = @[].mutableCopy; //[[NSMutableArray alloc] initWithCapacity:0];
     [self requestData];
-
+    BLAPI Data = [[BLAPI alloc]init];
 }
 
 - (void)load
@@ -65,18 +65,7 @@
 
 - (void)processDictionary:(NSDictionary *)json
 {
-    BLPages *pages = [[BLPages alloc]initWithDictionary:json]; //Class initialization "BLPages"
-    pages.nextPage; //incrementing number of page
-    NSLog(@"numberThisPage: <%@>", pages.numberThisPage);
-    NSNumber *thisPage = [json objectForKey:@"page"]; //thisPage - number of this page in json
-    thisPage = pages.numberThisPage; //this page - incremented value of page number in json
-    [json setValue:thisPage forKey:@"page"]; //check set value for json
     NSArray *items = [json objectForKey:@"items"];
-   /* NSInteger *i;
-    for(i in pages){
-        count = [NSNumber numberWithInt:i];
-      //  i++;*/
- //   for(page in pages){
         for (NSDictionary *item in items) {
             BLCompany *company = [[BLCompany alloc] initWithDictionary:item];
             NSLog(@"add company:<%@>", company); // add company: <Имя>:<ID>

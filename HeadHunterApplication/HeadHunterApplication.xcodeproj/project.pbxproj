@@ -15,7 +15,7 @@
 		A01DE6EA217A3AC700B2CE72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE6E9217A3AC700B2CE72 /* main.m */; };
 		A01DE6F2217A543E00B2CE72 /* BLCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE6F1217A543E00B2CE72 /* BLCompany.m */; };
 		A07630AA218C5F7E0072C308 /* BLPages.m in Sources */ = {isa = PBXBuildFile; fileRef = A07630A9218C5F7E0072C308 /* BLPages.m */; };
-		A08CA76021946CF7009E9CB7 /* BLSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A08CA75F21946CF7009E9CB7 /* BLSingleton.m */; };
+		A08CA76021946CF7009E9CB7 /* BLAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A08CA75F21946CF7009E9CB7 /* BLAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +33,8 @@
 		A01DE6F1217A543E00B2CE72 /* BLCompany.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLCompany.m; sourceTree = "<group>"; };
 		A07630A8218C5F7E0072C308 /* BLPages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLPages.h; sourceTree = "<group>"; };
 		A07630A9218C5F7E0072C308 /* BLPages.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLPages.m; sourceTree = "<group>"; };
-		A08CA75E21946CF7009E9CB7 /* BLSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLSingleton.h; sourceTree = "<group>"; };
-		A08CA75F21946CF7009E9CB7 /* BLSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLSingleton.m; sourceTree = "<group>"; };
+		A08CA75E21946CF7009E9CB7 /* BLAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLAPI.h; sourceTree = "<group>"; };
+		A08CA75F21946CF7009E9CB7 /* BLAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +69,8 @@
 			children = (
 				A01DE6DA217A3AC600B2CE72 /* AppDelegate.h */,
 				A01DE6DB217A3AC600B2CE72 /* AppDelegate.m */,
-				A08CA75E21946CF7009E9CB7 /* BLSingleton.h */,
-				A08CA75F21946CF7009E9CB7 /* BLSingleton.m */,
+				A08CA75E21946CF7009E9CB7 /* BLAPI.h */,
+				A08CA75F21946CF7009E9CB7 /* BLAPI.m */,
 				A07630A8218C5F7E0072C308 /* BLPages.h */,
 				A07630A9218C5F7E0072C308 /* BLPages.m */,
 				A01DE6F0217A543E00B2CE72 /* BLCompany.h */,
@@ -159,7 +159,7 @@
 				A01DE6DF217A3AC600B2CE72 /* ViewController.m in Sources */,
 				A01DE6EA217A3AC700B2CE72 /* main.m in Sources */,
 				A01DE6DC217A3AC600B2CE72 /* AppDelegate.m in Sources */,
-				A08CA76021946CF7009E9CB7 /* BLSingleton.m in Sources */,
+				A08CA76021946CF7009E9CB7 /* BLAPI.m in Sources */,
 				A07630AA218C5F7E0072C308 /* BLPages.m in Sources */,
 				A01DE6F2217A543E00B2CE72 /* BLCompany.m in Sources */,
 			);
