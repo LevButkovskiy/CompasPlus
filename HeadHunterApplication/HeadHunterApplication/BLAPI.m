@@ -50,6 +50,8 @@ static dispatch_once_t onceToken;
     [dataTask resume];
 }
 
+
+
 - (NSString *)setUrlWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage{
     
     NSString *tmpString = [NSString stringWithFormat:@"%@%@%s%@%s%@", @"https://api.hh.ru/",type, "?per_page=", perPage, "&page=", page];

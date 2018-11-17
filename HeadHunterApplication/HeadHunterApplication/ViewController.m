@@ -36,12 +36,12 @@
 - (void)processDictionary:(NSDictionary *)json
 {
     NSArray *items = [json objectForKey:@"items"];
-        for (NSDictionary *item in items) {
-            BLCompany *company = [[BLCompany alloc] initWithDictionary:item];
-            NSLog(@"add company:<%@>", company); // add company: <Имя>:<ID>
-            [_companies addObject:company];
-        }
-            NSLog(@"");
+    for (NSDictionary *item in items) {
+        BLCompany *company = [[BLCompany alloc] initWithDictionary:item];
+        NSLog(@"add company:<%@>", company); // add company: <Имя>:<ID>
+        [_companies addObject:company];
+    }
+    NSLog(@"");
 }
 
 - (void)processArray:(NSArray *)json

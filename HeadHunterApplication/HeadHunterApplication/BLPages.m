@@ -20,14 +20,6 @@
     return self;
 }
 
-- (id)initWithElementsPerPage:(NSNumber *)newElementsPerPage{
-    
-    if(self = [super init]){
-        self.elementsPerPage = newElementsPerPage;
-    }
-    return self;
-}
-
 - (void)nextPage{
     self.numberThisPage = @(self.numberThisPage.intValue + 1);
 }
