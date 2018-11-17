@@ -12,7 +12,7 @@
 
 static BLAPI *dataManager = nil;
 static dispatch_once_t onceToken;
-+ (BLAPI *)sharedInstanceWithType
++ (BLAPI *)sharedInstance
 {
     dispatch_once(&onceToken, ^{
         dataManager = [[BLAPI alloc] init];
@@ -37,7 +37,7 @@ static dispatch_once_t onceToken;
                 NSLog(@"=:\n%@", json);
                 if ([json isKindOfClass:[NSDictionary class]]) {
                     //return json;
-                    self.result(json, errorU);
+                    self.res_json = json;
                 }
                 else {
                     NSLog(@"непонятный класс");

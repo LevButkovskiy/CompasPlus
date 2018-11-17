@@ -25,7 +25,8 @@
     BLAPI *session = [BLAPI sharedInstance];
     //https://api.hh.ru/employers?per_page=20&page=200
     [session requestDataForType:@"employers" onPage:@(0) perPage:@(20)];
-    [self processDictionary:session];
+    NSDictionary *json = session.res_json;
+    [self processDictionary:json];
 }
 - (void)load
 {

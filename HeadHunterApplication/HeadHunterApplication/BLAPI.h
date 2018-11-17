@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BLAPI : NSObject
-@property (nonatomic, copy) void (^result)(NSDictionary *json, NSError *error);
+//@property (nonatomic, copy) void (^result)(NSDictionary *json, NSError *error);
+@property (nonatomic, strong) NSDictionary *res_json;
+@property (nonatomic, strong) NSError *error;
 
 
 + (BLAPI *)sharedInstance;
