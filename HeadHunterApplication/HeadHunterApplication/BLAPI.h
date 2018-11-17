@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) void (^result)(NSDictionary *json, NSError *error);
 
 
-+ (BLAPI *)sharedInstanceWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage;
++ (BLAPI *)sharedInstance;
 
 - (void)requestDataForType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage;
 - (NSString *)setUrlWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage;

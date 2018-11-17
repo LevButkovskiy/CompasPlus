@@ -22,7 +22,9 @@
     [super viewDidLoad];
 
     _companies = @[].mutableCopy; //[[NSMutableArray alloc] initWithCapacity:0];
-    NSDictionary *session = [BLAPI sharedInstanceWithType:@"employers" onPage:@(0) perPage:@(20)];
+    BLAPI *session = [BLAPI sharedInstance];
+    //https://api.hh.ru/employers?per_page=20&page=200
+    [session requestDataForType:@"employers" onPage:@(0) perPage:@(20)];
     [self processDictionary:session];
 }
 - (void)load

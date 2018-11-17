@@ -12,11 +12,10 @@
 
 static BLAPI *dataManager = nil;
 static dispatch_once_t onceToken;
-+ (BLAPI *)sharedInstanceWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage
++ (BLAPI *)sharedInstanceWithType
 {
     dispatch_once(&onceToken, ^{
         dataManager = [[BLAPI alloc] init];
-        [dataManager requestDataForType:type onPage:page perPage:perPage];
     });
     return dataManager;
 }
