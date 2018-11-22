@@ -22,12 +22,14 @@
     [super viewDidLoad];
 
     _companies = @[].mutableCopy; //[[NSMutableArray alloc] initWithCapacity:0];
+ /*   id (^simpleBlock)(NSDictionary*, NSError*) = ^{
+    };*/
+    
     BLAPI *session = [BLAPI sharedInstance];
     //https://api.hh.ru/employers?per_page=20&page=200
-    //[session requestDataForType:@"employers" onPage:@(0) perPage:@(20)];
-    //[session requestDataForType:@"eployers" onPage:@(0) perPage:@(20) completion:/*block*/];
-  //  NSDictionary *json = session.res_json;
- //   [self processDictionary:json];
+    [session requestDataForType:@"employers" onPage:@(0) perPage:@(20) completion:matchedBlock];
+    NSDictionary *json = session.res_json;
+    [self processDictionary: json];
 }
 - (void)load
 {
@@ -44,6 +46,10 @@
     }
     NSLog(@"");
 }
+
+NSDictionary* (^matchedBlock)(NSDictionary*) = ^(NSDictionary *new_json){
+    return new_json;
+};
 
 - (void)processArray:(NSArray *)json
 {

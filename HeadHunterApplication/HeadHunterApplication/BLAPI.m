@@ -20,7 +20,7 @@ static dispatch_once_t onceToken;
     return dataManager;
 }
 
-- (void)requestDataForType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage completion:(NSDictionary* (^)(NSDictionary*, NSError*)) completion
+- (void)requestDataForType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage completion:(NSArray* (^)(NSArray*)) completion
 {
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *baseURL = [NSURL URLWithString:[self setUrlWithType:type onPage:page perPage:perPage]];
@@ -38,7 +38,8 @@ static dispatch_once_t onceToken;
                 if ([json isKindOfClass:[NSDictionary class]]) {
                     self.res_json = json;
                     simpleBlock();
-                
+                    completion(json);
+
                 }
                 else {
                     NSLog(@"непонятный класс");
