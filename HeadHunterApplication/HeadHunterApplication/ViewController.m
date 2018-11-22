@@ -24,9 +24,10 @@
     _companies = @[].mutableCopy; //[[NSMutableArray alloc] initWithCapacity:0];
     BLAPI *session = [BLAPI sharedInstance];
     //https://api.hh.ru/employers?per_page=20&page=200
-    [session requestDataForType:@"employers" onPage:@(0) perPage:@(20)];
-    NSDictionary *json = session.res_json;
-    [self processDictionary:json];
+    //[session requestDataForType:@"employers" onPage:@(0) perPage:@(20)];
+    //[session requestDataForType:@"eployers" onPage:@(0) perPage:@(20) completion:/*block*/];
+  //  NSDictionary *json = session.res_json;
+ //   [self processDictionary:json];
 }
 - (void)load
 {

@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BLAPI *)sharedInstance;
 
-- (void)requestDataForType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage;
+- (void)requestDataForType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage completion:(NSDictionary* (^)(NSDictionary*, NSError*)) completion;
 - (NSString *)setUrlWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage;
 
 @end
