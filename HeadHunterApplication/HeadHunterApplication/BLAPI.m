@@ -20,7 +20,7 @@ static dispatch_once_t onceToken;
     return dataManager;
 }
 
-- (void)requestDataForType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage completion:(NSArray* (^)(NSArray*)) completion
+- (void)requestDataForType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage completion:(DataBlock)completion
 {
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *baseURL = [NSURL URLWithString:[self setUrlWithType:type onPage:page perPage:perPage]];
@@ -37,8 +37,7 @@ static dispatch_once_t onceToken;
                 NSLog(@"=:\n%@", json);
                 if ([json isKindOfClass:[NSDictionary class]]) {
                     self.res_json = json;
-                    simpleBlock();
-                    completion(json);
+                    completion(json, error);
 
                 }
                 else {
@@ -52,9 +51,38 @@ static dispatch_once_t onceToken;
     [dataTask resume];
 }
 
-void (^simpleBlock)(void) = ^{
-    NSLog(@"This is a block");
-};
+- (void)requestDataForType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURL *baseURL = [NSURL URLWithString:[self setUrlWithType:type onPage:page perPage:perPage]];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:baseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"error :<%@>", [error.userInfo objectForKey:NSLocalizedDescriptionKey]);
+        } else {
+            NSError *errorU;
+            id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&errorU];
+            
+            if (errorU) {
+                NSLog(@"error :<%@>", [errorU.userInfo objectForKey:NSLocalizedDescriptionKey]);
+            } else {
+                NSLog(@"=:\n%@", json);
+                if ([json isKindOfClass:[NSDictionary class]]) {
+                    self.res_json = json;
+                    self.block(json, error);
+                    
+                }
+                else {
+                    NSLog(@"непонятный класс");
+                }
+                
+            }
+            
+        }
+    }];
+    [dataTask resume];
+}
+
+
 
 
 - (NSString *)setUrlWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage{

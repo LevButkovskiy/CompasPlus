@@ -10,18 +10,16 @@
 
 @implementation BLPages
 
-- (id)initWithDictionary:(NSDictionary *)newDictionary {
-    
+- (id)initWithNumber:(NSNumber *)num{
     if(self = [super init]){
-        self.elementsPerPage = [newDictionary objectForKey:@"per_page"];
-        self.numberOfPages = [newDictionary objectForKey:@"pages"];
-        self.numberThisPage = [newDictionary objectForKey:@"page"];
+        self._page = num;
     }
     return self;
 }
 
-- (void)nextPage{
-    self.numberThisPage = @(self.numberThisPage.intValue + 1);
+- (NSNumber *)nextPage{
+    self._page = @(self._page.intValue + 1);
+    return self._page;
 }
 
 

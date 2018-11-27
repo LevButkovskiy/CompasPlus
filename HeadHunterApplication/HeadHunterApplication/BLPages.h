@@ -11,12 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BLPages : NSObject
-@property (nonatomic, strong) NSNumber *elementsPerPage;
-@property (nonatomic, strong) NSNumber *numberOfPages;
-@property (nonatomic, strong) NSNumber *numberThisPage;
 
-- (id)initWithDictionary:(NSDictionary *)newDictionary;
-- (void)nextPage;
+@property (nonatomic, strong) NSNumber *_page;
+
+- (id)initWithNumber:(NSNumber *)num;
+- (NSNumber *)nextPage;
 
 
 

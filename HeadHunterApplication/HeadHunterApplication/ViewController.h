@@ -10,6 +10,7 @@
 #import "BLCompany.h"
 #import "BLPages.h"
 #import "BLAPI.h"
+#import "DetailViewController.h"
 
 @interface ViewController : UIViewController
 
