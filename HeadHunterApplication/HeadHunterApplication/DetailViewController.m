@@ -10,23 +10,15 @@
 
 @interface DetailViewController () <UITableViewDelegate, UITableViewDataSource>
 {
-    __weak IBOutlet UILabel *_companyNameLabel;
-    __weak IBOutlet UITableView *_tableView;
-}
+    __weak IBOutlet UITableView *_tableView;}
 @end
 
 @implementation DetailViewController
 
 - (void)viewDidLoad {
-    _companyNameLabel.text = @"Имя компании";
     [super viewDidLoad];
     self.navigationItem.title = [NSString stringWithFormat:@"Вакансии: %@",@(_company.vacancies.count)];
     
-    if([self.company.vacancies firstObject] != nil)
-        _companyNameLabel.text = [self.company.vacancies firstObject];
-    else
-        _companyNameLabel.text = self.company.ID;
-
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -39,6 +31,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _company.vacancies.count;
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -53,11 +46,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
+
 /*
 #pragma mark - Navigation
 

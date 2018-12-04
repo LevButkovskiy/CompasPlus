@@ -17,6 +17,7 @@ typedef void (^ DataBlock)(NSDictionary * json, NSError *error);
 @property (nonatomic, strong) NSDictionary *res_json;
 @property (nonatomic, strong) NSError *error;
 @property (nonatomic, copy) DataBlock block;
+@property (nonatomic, copy) DataBlock requestBlock;
 
 
 + (BLAPI *)sharedInstance;

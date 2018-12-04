@@ -67,27 +67,34 @@
        // if(company.vacancies == nil)
         NSLog(@"add company:<%@>", company); // add company: <Имя>:<ID>
         [_companies addObject:company];
-        [_session requestVacansyForCompany:company completion:^(NSDictionary * _Nonnull vacJson, NSError * _Nonnull vacError) {
-            if(vacError){
-                NSLog(@"Error");
-            }
-            else{
-                if(vacJson != nil){
-                    NSArray *vacItems = [vacJson objectForKey:@"items"];
-                    for (NSDictionary *vacItem in vacItems) {
-                        BLVacancies *vacancy = [[BLVacancies alloc] initWithDictionary:vacItem];
-                        NSLog(@"added vacancy");
-                        [company.vacancies addObject: vacancy.name];
-                    }
-                    NSLog(@"");
-                }
-            }
-        }
-        ];
-        
     }
     
     NSLog(@"");
+}
+-(void)loadVacancy:(BLCompany *)company{
+    [_session requestVacansyForCompany:company completion:^(NSDictionary * _Nonnull vacJson, NSError * _Nonnull vacError) {
+        if(vacError){
+            NSLog(@"Error");
+        }
+        else{
+            if(vacJson != nil){
+                NSArray *vacItems = [vacJson objectForKey:@"items"];
+                if([company.vacancies firstObject] == nil)
+                for (NSDictionary *vacItem in vacItems) {
+                    BLVacancies *vacancy = [[BLVacancies alloc] initWithDictionary:vacItem];
+                    NSLog(@"added vacancy");
+                    [company.vacancies addObject: vacancy.name];
+                }
+                NSLog(@"");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self performSegueWithIdentifier:@"Detail" sender:company];
+                });
+                
+
+            }
+        }
+    }
+     ];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -113,10 +120,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     BLCompany *company = [_companies objectAtIndex:indexPath.row];
+    [self loadVacancy:company];
     NSLog(@"%@", company.name);
-    [self performSegueWithIdentifier:@"Detail" sender:company];
-    
-    
 }
 
 - ( void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
