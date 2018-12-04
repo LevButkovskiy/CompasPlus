@@ -106,6 +106,7 @@
 				A01DE6D3217A3AC600B2CE72 /* Sources */,
 				A01DE6D4217A3AC600B2CE72 /* Frameworks */,
 				A01DE6D5217A3AC600B2CE72 /* Resources */,
+				A0DC80D421B6530800C762D5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -160,6 +161,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A0DC80D421B6530800C762D5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A01DE6D3217A3AC600B2CE72 /* Sources */ = {

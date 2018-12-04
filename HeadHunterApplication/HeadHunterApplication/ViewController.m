@@ -64,6 +64,7 @@
     NSArray *items = [json objectForKey:@"items"];
     for (NSDictionary *item in items) {
         BLCompany *company = [[BLCompany alloc] initWithDictionary:item];
+       // if(company.vacancies == nil)
         NSLog(@"add company:<%@>", company); // add company: <Имя>:<ID>
         [_companies addObject:company];
         [_session requestVacansyForCompany:company completion:^(NSDictionary * _Nonnull vacJson, NSError * _Nonnull vacError) {
@@ -72,18 +73,18 @@
             }
             else{
                 if(vacJson != nil){
-                    NSArray *items = [vacJson objectForKey:@"items"];
-                    for (NSDictionary *item in items) {
-                        BLVacancies *vacancy = [[BLVacancies alloc] initWithDictionary:item];
+                    NSArray *vacItems = [vacJson objectForKey:@"items"];
+                    for (NSDictionary *vacItem in vacItems) {
+                        BLVacancies *vacancy = [[BLVacancies alloc] initWithDictionary:vacItem];
                         NSLog(@"added vacancy");
-                        [company.vacancies addObject:vacancy];
+                        [company.vacancies addObject: vacancy.name];
                     }
                     NSLog(@"");
                 }
             }
         }
         ];
-
+        
     }
     
     NSLog(@"");

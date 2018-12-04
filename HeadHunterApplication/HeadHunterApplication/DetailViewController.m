@@ -8,9 +8,10 @@
 
 #import "DetailViewController.h"
 
-@interface DetailViewController ()
+@interface DetailViewController () <UITableViewDelegate, UITableViewDataSource>
 {
     __weak IBOutlet UILabel *_companyNameLabel;
+    __weak IBOutlet UITableView *_tableView;
 }
 @end
 
@@ -19,8 +20,13 @@
 - (void)viewDidLoad {
     _companyNameLabel.text = @"Имя компании";
     [super viewDidLoad];
+    self.navigationItem.title = [NSString stringWithFormat:@"Вакансии: %@",@(_company.vacancies.count)];
     
-    _companyNameLabel.text = [self.company.vacancies firstObject];
+    if([self.company.vacancies firstObject] != nil)
+        _companyNameLabel.text = [self.company.vacancies firstObject];
+    else
+        _companyNameLabel.text = self.company.ID;
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -31,7 +37,27 @@
     
 }
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _company.vacancies.count;
+}
 
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if(cell == nil){
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    //BLCompany *company = [_companies objectAtIndex:indexPath.row];
+    cell.textLabel.text = [_company.vacancies objectAtIndex:indexPath.row];
+    cell.accessoryType = UITableViewCellAccessoryDetailButton;
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+}
 /*
 #pragma mark - Navigation
 

@@ -27,7 +27,7 @@
 }
 
 - (id)initWithDictionary:(NSDictionary *)newDictionary{
-    
+    self.vacancies = @[].mutableCopy;
     if(self = [super init]){
         self.name = [newDictionary objectForKey:@"name"];
         self.ID = [newDictionary objectForKey:@"id"];

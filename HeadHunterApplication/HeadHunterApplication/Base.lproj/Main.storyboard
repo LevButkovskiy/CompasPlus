@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Yb6-Sq-hJn"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vbK-8E-ZXS"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3Z1-Ad-yP0"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -59,16 +59,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WDf-hc-LjK">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XFd-Cm-j88" id="WbB-wC-Qyz"/>
+                                    <outlet property="delegate" destination="XFd-Cm-j88" id="685-Hy-zHy"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="WDf-hc-LjK" firstAttribute="leading" secondItem="e9Y-n9-ynG" secondAttribute="leading" id="4iN-Cu-NKJ"/>
                             <constraint firstItem="Ipq-kq-42E" firstAttribute="top" secondItem="e9Y-n9-ynG" secondAttribute="top" constant="10" id="9ME-6q-KbS"/>
+                            <constraint firstItem="WDf-hc-LjK" firstAttribute="top" secondItem="e9Y-n9-ynG" secondAttribute="top" id="IBV-me-zHZ"/>
+                            <constraint firstItem="e9Y-n9-ynG" firstAttribute="trailing" secondItem="WDf-hc-LjK" secondAttribute="trailing" id="daN-SF-vqM"/>
                             <constraint firstItem="Ipq-kq-42E" firstAttribute="centerX" secondItem="e9Y-n9-ynG" secondAttribute="centerX" id="sQO-Sx-srn"/>
+                            <constraint firstItem="e9Y-n9-ynG" firstAttribute="bottom" secondItem="WDf-hc-LjK" secondAttribute="bottom" id="x0d-Rs-7Lw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e9Y-n9-ynG"/>
                     </view>
                     <connections>
                         <outlet property="_companyNameLabel" destination="Ipq-kq-42E" id="Eyw-xA-LjJ"/>
+                        <outlet property="_tableView" destination="WDf-hc-LjK" id="VzW-l4-PdP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZQ-CA-zPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
