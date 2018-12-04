@@ -86,6 +86,7 @@
                     [company.vacancies addObject: vacancy.name];
                 }
                 NSLog(@"");
+                if(company.vacancies.count != 0)
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self performSegueWithIdentifier:@"Detail" sender:company];
                 });
