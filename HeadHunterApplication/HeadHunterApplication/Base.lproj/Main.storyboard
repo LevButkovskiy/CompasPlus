@@ -68,7 +68,7 @@
                         <viewLayoutGuide key="safeArea" id="e9Y-n9-ynG"/>
                     </view>
                     <connections>
-                        <outlet property="_companyNameLabel" destination="Ipq-kq-42E" id="hZb-7w-TiW"/>
+                        <outlet property="_companyNameLabel" destination="Ipq-kq-42E" id="Eyw-xA-LjJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZQ-CA-zPh" userLabel="First Responder" sceneMemberID="firstResponder"/>

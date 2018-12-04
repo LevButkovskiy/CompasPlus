@@ -11,7 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BLPages : NSObject
-
 @property (nonatomic, strong) NSNumber *_page;
 
 - (id)initWithNumber:(NSNumber *)num;

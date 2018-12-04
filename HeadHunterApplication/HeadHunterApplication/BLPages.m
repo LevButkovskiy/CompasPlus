@@ -19,6 +19,8 @@
 
 - (NSNumber *)nextPage{
     self._page = @(self._page.intValue + 1);
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"nextPage" object:self._page];
+    
     return self._page;
 }
 

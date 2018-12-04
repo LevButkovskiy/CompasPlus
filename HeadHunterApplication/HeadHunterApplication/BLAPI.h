@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BLCompany.h"
 
 NS_ASSUME_NONNULL_BEGIN
 typedef void (^ DataBlock)(NSDictionary * json, NSError *error);
@@ -23,7 +24,12 @@ typedef void (^ DataBlock)(NSDictionary * json, NSError *error);
 - (void)requestDataForType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage completion:(DataBlock)completion;
 - (void)requestDataForType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage;
 - (NSString *)setUrlWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage;
+- (NSString *)setUrlWithEmployerId:(NSString *)ID;
+- (void)requestVacansyForCompany:(BLCompany *)company completion:(DataBlock)completion;
 
+//Получение вакансий  /Список опубликованных вакансий/
+//Класс для вакансий
+//requestVacansyForCompany:(BLCompany *)company completion(DataBlock)completion;
 @end
 
 NS_ASSUME_NONNULL_END

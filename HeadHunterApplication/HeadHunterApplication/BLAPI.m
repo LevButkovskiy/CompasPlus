@@ -82,12 +82,46 @@ static dispatch_once_t onceToken;
     [dataTask resume];
 }
 
-
+- (void)requestVacansyForCompany:(BLCompany *)company completion:(DataBlock)completion
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURL *baseURL = [NSURL URLWithString:[self setUrlWithEmployerId:company.ID]];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:baseURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"error :<%@>", [error.userInfo objectForKey:NSLocalizedDescriptionKey]);
+        } else {
+            NSError *errorU;
+            id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&errorU];
+            
+            if (errorU) {
+                NSLog(@"error :<%@>", [errorU.userInfo objectForKey:NSLocalizedDescriptionKey]);
+            } else {
+                NSLog(@"=:\n%@", json);
+                if ([json isKindOfClass:[NSDictionary class]]) {
+                    self.res_json = json;
+                    completion(json, error);
+                }
+                else {
+                    NSLog(@"непонятный класс");
+                }
+                
+            }
+            
+        }
+    }];
+    [dataTask resume];
+}
 
 
 - (NSString *)setUrlWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage{
     
     NSString *tmpString = [NSString stringWithFormat:@"%@%@%s%@%s%@", @"https://api.hh.ru/",type, "?per_page=", perPage, "&page=", page];
+    return tmpString;
+}
+
+- (NSString *)setUrlWithEmployerId:(NSString *)ID{
+    
+    NSString *tmpString = [NSString stringWithFormat:@"%@%@", @"https://api.hh.ru/vacancies?employer_id=", ID];
     return tmpString;
 }
 

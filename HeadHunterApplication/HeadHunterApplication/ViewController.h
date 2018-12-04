@@ -11,6 +11,7 @@
 #import "BLPages.h"
 #import "BLAPI.h"
 #import "DetailViewController.h"
+#import "BLVacancies.h"
 
 @interface ViewController : UIViewController
 

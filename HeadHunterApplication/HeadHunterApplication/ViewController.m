@@ -20,11 +20,16 @@
 
 @implementation ViewController
 
+-(void)didNextPage: (NSNotification *)notify {
+    self.navigationItem.title = [NSString stringWithFormat:@"Загружено: %@",notify.object];
+}
+
 - (void)viewDidLoad {
     //Initialization Company(-es)
     
     [super viewDidLoad];
     self.navigationItem.title = @"Компании";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNextPage:) name:@"nextPage" object:nil];
     _companies = @[].mutableCopy; 
     
     _session = [BLAPI sharedInstance];
@@ -38,26 +43,17 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self->_tableView reloadData];
                 });
-                
             }
         }
     };
+    
 
-    //https://api.hh.ru/employers?per_page=20&page=200
     _thisPage = [[BLPages alloc]initWithNumber:@(0)];
     [_session requestDataForType:@"employers" onPage:_thisPage._page perPage:@(20)];
-   /* [session requestDataForType:@"employers" onPage:@(0) perPage:@(20) completion:^(NSDictionary * _Nonnull json, NSError * _Nonnull error) {
-        if(error){
-            NSLog(@"Error");
-        }
-        else{
-            if(json != nil){
-                [self processDictionary: json];
-            }
-        }
-    }
-     ];*/
+    //https://api.hh.ru/employers?per_page=20&page=200
+    
 }
+
 - (void)load
 {
     [self viewDidLoad];
@@ -70,14 +66,27 @@
         BLCompany *company = [[BLCompany alloc] initWithDictionary:item];
         NSLog(@"add company:<%@>", company); // add company: <Имя>:<ID>
         [_companies addObject:company];
+        [_session requestVacansyForCompany:company completion:^(NSDictionary * _Nonnull vacJson, NSError * _Nonnull vacError) {
+            if(vacError){
+                NSLog(@"Error");
+            }
+            else{
+                if(vacJson != nil){
+                    NSArray *items = [vacJson objectForKey:@"items"];
+                    for (NSDictionary *item in items) {
+                        BLVacancies *vacancy = [[BLVacancies alloc] initWithDictionary:item];
+                        NSLog(@"added vacancy");
+                        [company.vacancies addObject:vacancy];
+                    }
+                    NSLog(@"");
+                }
+            }
+        }
+        ];
+
     }
-    NSLog(@"");
-}
-
-
-- (void)processArray:(NSArray *)json
-{
     
+    NSLog(@"");
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -94,23 +103,24 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row == _companies.count-1){
         [_session requestDataForType:@"employers" onPage:_thisPage.nextPage perPage:@(20)];
     }
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     BLCompany *company = [_companies objectAtIndex:indexPath.row];
     NSLog(@"%@", company.name);
     [self performSegueWithIdentifier:@"Detail" sender:company];
+    
+    
 }
-
-
-
-
 
 - ( void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    DetailViewController *controller = segue.destinationViewController;
+    controller.company = sender;
 }
 @end

@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "BLAPI.h"
-#include "BLCompany.h"
+#import "BLAPI.h"
+#import "BLCompany.h"
+#import "BLVacancies.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailViewController : UIViewController
-
+@property (nonatomic, strong) BLCompany * company;
 @end
 
 NS_ASSUME_NONNULL_END

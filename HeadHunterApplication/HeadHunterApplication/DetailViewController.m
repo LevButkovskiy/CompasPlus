@@ -17,9 +17,18 @@
 @implementation DetailViewController
 
 - (void)viewDidLoad {
-    
+    _companyNameLabel.text = @"Имя компании";
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _companyNameLabel.text = [self.company.vacancies firstObject];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
 }
 
 
