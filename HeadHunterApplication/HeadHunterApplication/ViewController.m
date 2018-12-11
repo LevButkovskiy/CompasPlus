@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "BLCompanyCell.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 {
@@ -52,6 +53,8 @@
     [_session requestDataForType:@"employers" onPage:_thisPage._page perPage:@(20)];
     //https://api.hh.ru/employers?per_page=20&page=200
     
+    [_tableView registerNib:[UINib nibWithNibName:@"BLCompanyCell" bundle:nil] forCellReuseIdentifier:@"companyCell"];
+    
 }
 
 - (void)load
@@ -95,7 +98,7 @@
             }
         }
     }
-     ];
+    ];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -103,12 +106,11 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if(cell == nil){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
+   // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    BLCompanyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"companyCell"];
     BLCompany *company = [_companies objectAtIndex:indexPath.row];
-    cell.textLabel.text = company.name;
+    cell.company = company;
+    //cell.textLabel.text = company.name;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

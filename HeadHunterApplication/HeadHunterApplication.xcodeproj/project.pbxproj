@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A014E8AC21BA852100AAE072 /* BLCompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A014E8AA21BA852100AAE072 /* BLCompanyCell.m */; };
+		A014E8AD21BA852100AAE072 /* BLCompanyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A014E8AB21BA852100AAE072 /* BLCompanyCell.xib */; };
 		A01DE6DC217A3AC600B2CE72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE6DB217A3AC600B2CE72 /* AppDelegate.m */; };
 		A01DE6DF217A3AC600B2CE72 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE6DE217A3AC600B2CE72 /* ViewController.m */; };
 		A01DE6E2217A3AC600B2CE72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01DE6E0217A3AC600B2CE72 /* Main.storyboard */; };
@@ -21,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A014E8A921BA852100AAE072 /* BLCompanyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLCompanyCell.h; sourceTree = "<group>"; };
+		A014E8AA21BA852100AAE072 /* BLCompanyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLCompanyCell.m; sourceTree = "<group>"; };
+		A014E8AB21BA852100AAE072 /* BLCompanyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BLCompanyCell.xib; sourceTree = "<group>"; };
 		A01DE6D7217A3AC600B2CE72 /* HeadHunterApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadHunterApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01DE6DA217A3AC600B2CE72 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A01DE6DB217A3AC600B2CE72 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,6 +90,9 @@
 				A098896621B189B5003B6FA0 /* BLVacancies.m */,
 				A01DE6DD217A3AC600B2CE72 /* ViewController.h */,
 				A01DE6DE217A3AC600B2CE72 /* ViewController.m */,
+				A014E8A921BA852100AAE072 /* BLCompanyCell.h */,
+				A014E8AA21BA852100AAE072 /* BLCompanyCell.m */,
+				A014E8AB21BA852100AAE072 /* BLCompanyCell.xib */,
 				A0876D2521A8205F0005FEF5 /* DetailViewController.h */,
 				A0876D2621A8205F0005FEF5 /* DetailViewController.m */,
 				A01DE6E0217A3AC600B2CE72 /* Main.storyboard */,
@@ -157,6 +165,7 @@
 				A01DE6E7217A3AC700B2CE72 /* LaunchScreen.storyboard in Resources */,
 				A01DE6E4217A3AC700B2CE72 /* Assets.xcassets in Resources */,
 				A01DE6E2217A3AC600B2CE72 /* Main.storyboard in Resources */,
+				A014E8AD21BA852100AAE072 /* BLCompanyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +198,7 @@
 			files = (
 				A01DE6DF217A3AC600B2CE72 /* ViewController.m in Sources */,
 				A01DE6EA217A3AC700B2CE72 /* main.m in Sources */,
+				A014E8AC21BA852100AAE072 /* BLCompanyCell.m in Sources */,
 				A01DE6DC217A3AC600B2CE72 /* AppDelegate.m in Sources */,
 				A098896721B189B5003B6FA0 /* BLVacancies.m in Sources */,
 				A08CA76021946CF7009E9CB7 /* BLAPI.m in Sources */,

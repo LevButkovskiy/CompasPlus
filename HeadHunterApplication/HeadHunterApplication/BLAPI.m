@@ -112,6 +112,20 @@ static dispatch_once_t onceToken;
     [dataTask resume];
 }
 
+-(void)imageWithURL:(NSString *)url completion:(ImageBlock)completion{
+    NSURL* errorImg;
+    NSURL  *imageURL = [NSURL URLWithString:url];
+    if(url == nil){
+        errorImg = @"Error with URL";
+    }
+    else{
+        NSData * data = [NSData dataWithContentsOfURL:imageURL];
+        UIImage * img = [UIImage imageWithData:data];
+        completion(img, errorImg);
+    }
+    
+}
+
 
 - (NSString *)setUrlWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage{
     
