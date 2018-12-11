@@ -113,16 +113,19 @@ static dispatch_once_t onceToken;
 }
 
 -(void)imageWithURL:(NSString *)url completion:(ImageBlock)completion{
-    NSURL* errorImg;
-    NSURL  *imageURL = [NSURL URLWithString:url];
-    if(url == nil){
-        errorImg = @"Error with URL";
-    }
-    else{
-        NSData * data = [NSData dataWithContentsOfURL:imageURL];
-        UIImage * img = [UIImage imageWithData:data];
-        completion(img, errorImg);
-    }
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURL *imageURL = [NSURL URLWithString:url];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:imageURL
+                                            completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"error :<%@>", [error.userInfo objectForKey:NSLocalizedDescriptionKey]);
+        } else {
+            NSData * data = [NSData dataWithContentsOfURL:imageURL];
+            UIImage * image = [UIImage imageWithData:data];
+            completion(image, error);
+        }
+    }];
+    [dataTask resume];
     
 }
 
