@@ -16,12 +16,14 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *ID;
 @property (nonatomic, strong) NSString *url;
-@property (nonatomic, strong) NSNumber *numberOfVacancies;
+@property (nonatomic, assign) NSInteger *numberOfVacancies;
 @property (nonatomic, strong) NSDictionary *logoURL; //img 
 @property (nonatomic, strong) NSNumber *page;
 //@property(readonly, copy) NSString *description;
 @property (nonatomic, strong) NSMutableArray *vacancies;
 @property (strong, nonatomic) UIImage *logo;
+
+
 
 - (id)initWithString:(NSString *)newName andID:(NSString *)newID;
 - (id)initWithDictionary:(NSDictionary *)newDictionary;

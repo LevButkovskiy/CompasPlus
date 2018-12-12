@@ -68,8 +68,10 @@
     for (NSDictionary *item in items) {
         BLCompany *company = [[BLCompany alloc] initWithDictionary:item];
        // if(company.vacancies == nil)
+        if(company.numberOfVacancies != 0){
         NSLog(@"add company:<%@>", company); // add company: <Имя>:<ID>
-        [self loadVacancy:company];
+        [_companies addObject:company];
+        }
     }
     
     NSLog(@"");
@@ -91,9 +93,7 @@
                 NSLog(@"");
                 if(company.vacancies.count != 0)
                 dispatch_async(dispatch_get_main_queue(), ^{
-                  //  [self performSegueWithIdentifier:@"Detail" sender:company];
-                    [_companies addObject:company];
-                    [self->_tableView reloadData];
+                    [self performSegueWithIdentifier:@"Detail" sender:company];
                 });
             }
         }
@@ -123,9 +123,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     BLCompany *company = [_companies objectAtIndex:indexPath.row];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self performSegueWithIdentifier:@"Detail" sender:company];
-    });
+    [self loadVacancy:company];
     NSLog(@"%@", company.name);
 }
 

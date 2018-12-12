@@ -33,7 +33,7 @@
         self.name = [newDictionary objectForKey:@"name"];
         self.ID = [newDictionary objectForKey:@"id"];
         self.url = [newDictionary objectForKey:@"url"];
-        self.numberOfVacancies = [newDictionary objectForKey:@"open_vacancies"];
+        self.numberOfVacancies = [[newDictionary objectForKey:@"open_vacancies"]integerValue];
         self.logoURL = [newDictionary objectForKey:@"logo_urls"];
         if(self.logo == nil){
             [[BLAPI sharedInstance] imageWithURL:[self.logoURL.allValues firstObject] completion:^(UIImage * _Nonnull image, NSError * _Nonnull error) {
