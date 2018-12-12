@@ -24,10 +24,11 @@
 - (void)setCompany:(BLCompany *)company{
     _company = company;
     _labelCompanyName.text = _company.name;
-    if(_companyLogo.image == nil){
+    _companyLogo.image = _company.logo;
+    /*if(_companyLogo.image == nil){
                 [[BLAPI sharedInstance] imageWithURL:[_company.logoURL.allValues firstObject] completion:^(UIImage * _Nonnull image, NSError * _Nonnull error) {
             if(error != nil){
-                NSLog(error);
+                NSLog(@"%@", error);
             }
             else{
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -36,8 +37,7 @@
             }
         }
          ];
-        
-    }
+    }*/
 }
 
 @end

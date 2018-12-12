@@ -120,7 +120,7 @@ static dispatch_once_t onceToken;
         if (error) {
             NSLog(@"error :<%@>", [error.userInfo objectForKey:NSLocalizedDescriptionKey]);
         } else {
-            NSData * data = [NSData dataWithContentsOfURL:imageURL];
+          //  NSData * data = [NSData dataWithContentsOfURL:imageURL];
             UIImage * image = [UIImage imageWithData:data];
             completion(image, error);
         }
