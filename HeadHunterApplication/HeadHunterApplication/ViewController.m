@@ -69,7 +69,7 @@
         BLCompany *company = [[BLCompany alloc] initWithDictionary:item];
        // if(company.vacancies == nil)
         NSLog(@"add company:<%@>", company); // add company: <Имя>:<ID>
-        [_companies addObject:company];
+        [self loadVacancy:company];
     }
     
     NSLog(@"");
@@ -91,10 +91,10 @@
                 NSLog(@"");
                 if(company.vacancies.count != 0)
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self performSegueWithIdentifier:@"Detail" sender:company];
+                  //  [self performSegueWithIdentifier:@"Detail" sender:company];
+                    [_companies addObject:company];
+                    [self->_tableView reloadData];
                 });
-                
-
             }
         }
     }
@@ -117,13 +117,15 @@
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row == _companies.count-1){
-        [_session requestDataForType:@"employers" onPage:_thisPage.nextPage perPage:@(20)];
+       [_session requestDataForType:@"employers" onPage:_thisPage.nextPage perPage:@(20)];
     }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     BLCompany *company = [_companies objectAtIndex:indexPath.row];
-    [self loadVacancy:company];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self performSegueWithIdentifier:@"Detail" sender:company];
+    });
     NSLog(@"%@", company.name);
 }
 

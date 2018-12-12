@@ -69,7 +69,6 @@ static dispatch_once_t onceToken;
                 if ([json isKindOfClass:[NSDictionary class]]) {
                     self.res_json = json;
                     self.block(json, error);
-                    
                 }
                 else {
                     NSLog(@"непонятный класс");
