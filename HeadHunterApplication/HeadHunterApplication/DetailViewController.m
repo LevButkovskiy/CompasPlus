@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = [NSString stringWithFormat:@"Вакансии: %@",@(_company.vacancies.count)];
+    [_tableView registerNib:[UINib nibWithNibName:@"BLVacancyCell" bundle:nil] forCellReuseIdentifier:@"vacancyCell"];
     
 }
 
@@ -35,13 +36,18 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if(cell == nil){
+    BLVacancyCell * cell = [tableView dequeueReusableCellWithIdentifier:@"vacancyCell"];
+    BLVacancies *vacancy = [_company.vacancies objectAtIndex:indexPath.row];
+    cell.vacancyNameLabel.text = vacancy.name;
+    cell.dateOfPublishingLabel.text = vacancy.dateOfPublishing;
+    cell.salaryFromToLabel.text = [NSString stringWithFormat:@"%ld-%ld", vacancy.salaryFrom, vacancy.salaryTo];
+   // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    /*if(cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
+    }*/
     //BLCompany *company = [_companies objectAtIndex:indexPath.row];
-    cell.textLabel.text = [_company.vacancies objectAtIndex:indexPath.row];
-    cell.accessoryType = UITableViewCellAccessoryDetailButton;
+    //cell.textLabel.text = [_company.vacancies objectAtIndex:indexPath.row];
+  //  cell.accessoryType = UITableViewCellAccessoryDetailButton;
     return cell;
 }
 

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="KGk-i7-Jjw" customClass="BLVacancyCell">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="74"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="376" height="73.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdK-JP-lIu">
+                        <rect key="frame" x="337" y="53" width="34" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Очень длинное название вакансии для компании с ID каким-то и еще у вакансии есть зарплата" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aub-bb-0pI">
+                        <rect key="frame" x="10" y="5" width="366" height="47.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата публикации:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXr-dp-q3Y">
+                        <rect key="frame" x="10" y="57.5" width="113" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000 - 15000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDs-ZU-uZa">
+                        <rect key="frame" x="225" y="52.5" width="107" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24.11.18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbI-hx-5Lw">
+                        <rect key="frame" x="123" y="57.5" width="48" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="CDs-ZU-uZa" secondAttribute="bottom" id="09K-Er-kVC"/>
+                    <constraint firstAttribute="trailing" secondItem="aub-bb-0pI" secondAttribute="trailing" id="11r-21-S7b"/>
+                    <constraint firstItem="aub-bb-0pI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="4SB-0N-z3N"/>
+                    <constraint firstItem="aub-bb-0pI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="5cM-0c-Xge"/>
+                    <constraint firstAttribute="bottom" secondItem="AdK-JP-lIu" secondAttribute="bottom" id="Fpp-jr-7NC"/>
+                    <constraint firstAttribute="bottom" secondItem="kXr-dp-q3Y" secondAttribute="bottom" id="VGG-XO-8BM"/>
+                    <constraint firstAttribute="trailing" secondItem="AdK-JP-lIu" secondAttribute="trailing" constant="5" id="WoC-9K-Zi1"/>
+                    <constraint firstItem="nbI-hx-5Lw" firstAttribute="leading" secondItem="kXr-dp-q3Y" secondAttribute="trailing" id="XDj-mY-MZq"/>
+                    <constraint firstItem="CDs-ZU-uZa" firstAttribute="top" secondItem="aub-bb-0pI" secondAttribute="bottom" id="ctW-wh-eTk"/>
+                    <constraint firstItem="kXr-dp-q3Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="kGM-6n-MQs"/>
+                    <constraint firstAttribute="bottom" secondItem="nbI-hx-5Lw" secondAttribute="bottom" id="xCD-Y3-OR2"/>
+                    <constraint firstItem="AdK-JP-lIu" firstAttribute="leading" secondItem="CDs-ZU-uZa" secondAttribute="trailing" constant="5" id="xx6-1F-coY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="dateOfPublishingLabel" destination="nbI-hx-5Lw" id="dc5-fo-pze"/>
+                <outlet property="salaryFromToLabel" destination="CDs-ZU-uZa" id="sxe-NN-G9Z"/>
+                <outlet property="vacancyNameLabel" destination="aub-bb-0pI" id="0bq-ik-7e7"/>
+            </connections>
+            <point key="canvasLocation" x="152" y="182.60869565217394"/>
+        </tableViewCell>
+    </objects>
+</document>

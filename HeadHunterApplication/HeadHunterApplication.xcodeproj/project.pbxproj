@@ -16,6 +16,8 @@
 		A01DE6E7217A3AC700B2CE72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01DE6E5217A3AC700B2CE72 /* LaunchScreen.storyboard */; };
 		A01DE6EA217A3AC700B2CE72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE6E9217A3AC700B2CE72 /* main.m */; };
 		A01DE6F2217A543E00B2CE72 /* BLCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE6F1217A543E00B2CE72 /* BLCompany.m */; };
+		A0539EBB21C8B88200F96F4D /* BLVacancyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0539EB921C8B88200F96F4D /* BLVacancyCell.m */; };
+		A0539EBC21C8B88200F96F4D /* BLVacancyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0539EBA21C8B88200F96F4D /* BLVacancyCell.xib */; };
 		A07630AA218C5F7E0072C308 /* BLPages.m in Sources */ = {isa = PBXBuildFile; fileRef = A07630A9218C5F7E0072C308 /* BLPages.m */; };
 		A0876D2721A8205F0005FEF5 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0876D2621A8205F0005FEF5 /* DetailViewController.m */; };
 		A08CA76021946CF7009E9CB7 /* BLAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A08CA75F21946CF7009E9CB7 /* BLAPI.m */; };
@@ -38,6 +40,9 @@
 		A01DE6E9217A3AC700B2CE72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A01DE6F0217A543E00B2CE72 /* BLCompany.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLCompany.h; sourceTree = "<group>"; };
 		A01DE6F1217A543E00B2CE72 /* BLCompany.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLCompany.m; sourceTree = "<group>"; };
+		A0539EB821C8B88200F96F4D /* BLVacancyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLVacancyCell.h; sourceTree = "<group>"; };
+		A0539EB921C8B88200F96F4D /* BLVacancyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLVacancyCell.m; sourceTree = "<group>"; };
+		A0539EBA21C8B88200F96F4D /* BLVacancyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BLVacancyCell.xib; sourceTree = "<group>"; };
 		A07630A8218C5F7E0072C308 /* BLPages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLPages.h; sourceTree = "<group>"; };
 		A07630A9218C5F7E0072C308 /* BLPages.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLPages.m; sourceTree = "<group>"; };
 		A0876D2521A8205F0005FEF5 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -86,15 +91,18 @@
 				A07630A9218C5F7E0072C308 /* BLPages.m */,
 				A01DE6F0217A543E00B2CE72 /* BLCompany.h */,
 				A01DE6F1217A543E00B2CE72 /* BLCompany.m */,
+				A014E8A921BA852100AAE072 /* BLCompanyCell.h */,
+				A014E8AA21BA852100AAE072 /* BLCompanyCell.m */,
+				A014E8AB21BA852100AAE072 /* BLCompanyCell.xib */,
 				A098896521B189B5003B6FA0 /* BLVacancies.h */,
 				A098896621B189B5003B6FA0 /* BLVacancies.m */,
+				A0539EB821C8B88200F96F4D /* BLVacancyCell.h */,
+				A0539EB921C8B88200F96F4D /* BLVacancyCell.m */,
+				A0539EBA21C8B88200F96F4D /* BLVacancyCell.xib */,
 				A01DE6DD217A3AC600B2CE72 /* ViewController.h */,
 				A01DE6DE217A3AC600B2CE72 /* ViewController.m */,
 				A0876D2521A8205F0005FEF5 /* DetailViewController.h */,
 				A0876D2621A8205F0005FEF5 /* DetailViewController.m */,
-				A014E8A921BA852100AAE072 /* BLCompanyCell.h */,
-				A014E8AA21BA852100AAE072 /* BLCompanyCell.m */,
-				A014E8AB21BA852100AAE072 /* BLCompanyCell.xib */,
 				A01DE6E0217A3AC600B2CE72 /* Main.storyboard */,
 				A01DE6E3217A3AC700B2CE72 /* Assets.xcassets */,
 				A01DE6E5217A3AC700B2CE72 /* LaunchScreen.storyboard */,
@@ -166,6 +174,7 @@
 				A01DE6E4217A3AC700B2CE72 /* Assets.xcassets in Resources */,
 				A01DE6E2217A3AC600B2CE72 /* Main.storyboard in Resources */,
 				A014E8AD21BA852100AAE072 /* BLCompanyCell.xib in Resources */,
+				A0539EBC21C8B88200F96F4D /* BLVacancyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +212,7 @@
 				A098896721B189B5003B6FA0 /* BLVacancies.m in Sources */,
 				A08CA76021946CF7009E9CB7 /* BLAPI.m in Sources */,
 				A07630AA218C5F7E0072C308 /* BLPages.m in Sources */,
+				A0539EBB21C8B88200F96F4D /* BLVacancyCell.m in Sources */,
 				A01DE6F2217A543E00B2CE72 /* BLCompany.m in Sources */,
 				A0876D2721A8205F0005FEF5 /* DetailViewController.m in Sources */,
 			);

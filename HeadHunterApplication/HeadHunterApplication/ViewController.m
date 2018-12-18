@@ -85,7 +85,7 @@
                 for (NSDictionary *vacItem in vacItems) {
                     BLVacancies *vacancy = [[BLVacancies alloc] initWithDictionary:vacItem];
                     NSLog(@"added vacancy");
-                    [company.vacancies addObject: vacancy.name];
+                    [company.vacancies addObject: vacancy];
                 }
                 NSLog(@"");
                 if(company.vacancies.count != 0)

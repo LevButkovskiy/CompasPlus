@@ -10,6 +10,7 @@
 #import "BLAPI.h"
 #import "BLCompany.h"
 #import "BLVacancies.h"
+#import "BLVacancyCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
