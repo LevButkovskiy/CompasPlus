@@ -67,11 +67,8 @@
     NSArray *items = [json objectForKey:@"items"];
     for (NSDictionary *item in items) {
         BLCompany *company = [[BLCompany alloc] initWithDictionary:item];
-       // if(company.vacancies == nil)
-        if(company.numberOfVacancies != 0){
         NSLog(@"add company:<%@>", company); // add company: <Имя>:<ID>
         [_companies addObject:company];
-        }
     }
     
     NSLog(@"");

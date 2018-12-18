@@ -25,19 +25,22 @@
     _company = company;
     _labelCompanyName.text = _company.name;
     _companyLogo.image = _company.logo;
-    /*if(_companyLogo.image == nil){
+    if(company.logo == nil){
                 [[BLAPI sharedInstance] imageWithURL:[_company.logoURL.allValues firstObject] completion:^(UIImage * _Nonnull image, NSError * _Nonnull error) {
             if(error != nil){
                 NSLog(@"%@", error);
             }
             else{
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    _companyLogo.image = image;
+                    company.logo = image;
+                    _companyLogo.image = company.logo;
                 });
             }
         }
          ];
-    }*/
+    } else {
+        _companyLogo.image = company.logo;
+    }
 }
 
 @end

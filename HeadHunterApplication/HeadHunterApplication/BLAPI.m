@@ -131,7 +131,7 @@ static dispatch_once_t onceToken;
 
 - (NSString *)setUrlWithType:(NSString *)type onPage:(NSNumber *)page perPage:(NSNumber *)perPage{
     
-    NSString *tmpString = [NSString stringWithFormat:@"%@%@%s%@%s%@", @"https://api.hh.ru/",type, "?per_page=", perPage, "&page=", page];
+    NSString *tmpString = [NSString stringWithFormat:@"%@%@%s%@%s%@", @"https://api.hh.ru/",type, "?only_with_vacancies=true" "&per_page=", perPage, "&page=", page];
     return tmpString;
 }
 

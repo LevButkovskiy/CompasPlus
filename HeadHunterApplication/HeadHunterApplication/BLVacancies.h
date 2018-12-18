@@ -14,7 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *url;
-
+//id
+//дата публикации
+//в порядке публицации (самые свежие)
+//salary
+//archived
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 
