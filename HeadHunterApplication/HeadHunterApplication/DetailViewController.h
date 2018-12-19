@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailViewController : UIViewController
 @property (nonatomic, strong) BLCompany * company;
+-(NSString *)checkSalaryFrom:(long)salaryFrom To:(long)salaryTo;
 @end
 
 NS_ASSUME_NONNULL_END

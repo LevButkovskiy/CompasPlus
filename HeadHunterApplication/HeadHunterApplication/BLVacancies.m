@@ -16,10 +16,17 @@
         self.name = [dictionary objectForKey:@"name"];
         self.url = [dictionary objectForKey:@"url"];
         self.ID = [dictionary objectForKey:@"id"];
-        self.dateOfPublishing = [dictionary objectForKey:@"published_at"];
+        
+        NSString * tmpDate = [dictionary objectForKey:@"published_at"];
+        NSDateFormatter *dateFormatterTmp = [[NSDateFormatter alloc] init];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-        NSDate *dateFromString = [dateFormatter dateFromString:_dateOfPublishing];
+
+        [dateFormatterTmp setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss+SSSS"];
+        NSDate *dateFromString = [dateFormatterTmp dateFromString:tmpDate];
+        [dateFormatter setDateFormat:@"dd.MM.yyyy"];
+        self.dateOfPublishing = [dateFormatter stringFromDate:dateFromString];
+        
+        
         self.archived = [dictionary objectForKey:@"archived"];
         
         NSDictionary *salary = [dictionary objectForKey:@"salary"];
@@ -28,13 +35,13 @@
         }
         else{
             if([[salary objectForKey:@"to"] isKindOfClass:[NSNull class]])
-                NSLog(@"ERROR: salary is null");
+                NSLog(@"ERROR: salary To is null");
             else self.salaryTo = [[salary objectForKey:@"to"]longValue];
             if([[salary objectForKey:@"from"] isKindOfClass:[NSNull class]])
-            NSLog(@"ERROR: salary is null");
+            NSLog(@"ERROR: salary From is null");
             else self.salaryFrom = [[salary objectForKey:@"from"]longValue];
             if([[salary objectForKey:@"currency"] isKindOfClass:[NSNull class]])
-                NSLog(@"ERROR: salary is null");
+                NSLog(@"ERROR: salary Currency is null");
             else self.salaryCurrency = [salary objectForKey:@"currency"];
 
         }

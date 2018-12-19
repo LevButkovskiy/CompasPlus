@@ -39,15 +39,9 @@
     BLVacancyCell * cell = [tableView dequeueReusableCellWithIdentifier:@"vacancyCell"];
     BLVacancies *vacancy = [_company.vacancies objectAtIndex:indexPath.row];
     cell.vacancyNameLabel.text = vacancy.name;
-    cell.dateOfPublishingLabel.text = vacancy.dateOfPublishing;
-    cell.salaryFromToLabel.text = [NSString stringWithFormat:@"%ld-%ld", vacancy.salaryFrom, vacancy.salaryTo];
-   // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    /*if(cell == nil){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }*/
-    //BLCompany *company = [_companies objectAtIndex:indexPath.row];
-    //cell.textLabel.text = [_company.vacancies objectAtIndex:indexPath.row];
-  //  cell.accessoryType = UITableViewCellAccessoryDetailButton;
+    cell.dateOfPublishingLabel.text = [NSString stringWithFormat:@"%@", vacancy.dateOfPublishing];
+    cell.salaryFromToLabel.text = [self checkSalaryFrom:vacancy.salaryFrom To:vacancy.salaryTo];
+    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
@@ -57,6 +51,24 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
+-(NSString *)checkSalaryFrom:(long)salaryFrom To:(long)salaryTo{
+    NSString *returnString;
+    if(salaryFrom == 0){
+        if(salaryTo == 0){
+            returnString =  [NSString stringWithFormat:@"%@", @"зарплата не указана"];
+        }
+        else{
+            returnString = [NSString stringWithFormat:@"%@ %ld %@",@"до", salaryTo, @"RUR"];
+        }
+    }
+    else if (salaryTo == 0){
+        returnString = [NSString stringWithFormat:@"%@ %ld %@",@"от", salaryFrom, @"RUR"];
+    }
+    else {
+        returnString = [NSString stringWithFormat:@"%@ %ld %@ %ld %@", @"от", salaryFrom, @"до", salaryTo, @"RUR"];
+    }
+    return returnString;
+}
 /*
 #pragma mark - Navigation
 
