@@ -73,11 +73,84 @@
                     </view>
                     <connections>
                         <outlet property="_tableView" destination="WDf-hc-LjK" id="VzW-l4-PdP"/>
+                        <segue destination="7oR-fG-1zy" kind="show" identifier="VacancyInfo" id="Eb5-FC-1H1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZQ-CA-zPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1751.2" y="31.934032983508249"/>
+        </scene>
+        <!--Vacancy Info-->
+        <scene sceneID="Uf0-c1-h5C">
+            <objects>
+                <viewController id="7oR-fG-1zy" customClass="BLVacancyInfo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CkO-K6-HTK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vacancy Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cS-af-zeW">
+                                <rect key="frame" x="0.0" y="74" width="375" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Опыт работы: не важен. Требуется работник для работы на работе, нужно выполнять работу и получать деньги" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dNV-UV-rzH">
+                                <rect key="frame" x="5" y="108" width="365" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Магнитогорск, ул, Карла Маркса 233," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfx-O9-cG6">
+                                <rect key="frame" x="36" y="586" width="303" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Иванова Ивана Ивановна" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRZ-a1-1vP">
+                                <rect key="frame" x="85" y="534" width="205" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7-996-2281957" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qix-3P-OVL">
+                                <rect key="frame" x="125.5" y="560" width="124" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sx6-cR-qUj">
+                                <rect key="frame" x="325" y="615" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="Y2c-9X-OUW"/>
+                                    <constraint firstAttribute="height" constant="45" id="a3R-nS-nmq"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="like"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CVr-f3-PxY" firstAttribute="trailing" secondItem="Sx6-cR-qUj" secondAttribute="trailing" constant="5" id="2Zx-ed-ohj"/>
+                            <constraint firstItem="dNV-UV-rzH" firstAttribute="top" secondItem="5cS-af-zeW" secondAttribute="bottom" constant="10" id="6gf-JV-L9R"/>
+                            <constraint firstItem="CVr-f3-PxY" firstAttribute="trailing" secondItem="5cS-af-zeW" secondAttribute="trailing" id="EDT-GJ-MmG"/>
+                            <constraint firstItem="lRZ-a1-1vP" firstAttribute="centerX" secondItem="CkO-K6-HTK" secondAttribute="centerX" id="EXb-be-l0e"/>
+                            <constraint firstItem="qix-3P-OVL" firstAttribute="centerX" secondItem="CkO-K6-HTK" secondAttribute="centerX" id="NHq-4T-u7b"/>
+                            <constraint firstItem="CVr-f3-PxY" firstAttribute="trailing" secondItem="dNV-UV-rzH" secondAttribute="trailing" constant="5" id="Slf-z8-lwa"/>
+                            <constraint firstItem="lRZ-a1-1vP" firstAttribute="top" secondItem="dNV-UV-rzH" secondAttribute="bottom" constant="10" id="Wcb-FA-P0B"/>
+                            <constraint firstItem="CVr-f3-PxY" firstAttribute="bottom" secondItem="Sx6-cR-qUj" secondAttribute="bottom" constant="5" id="dMe-th-Lv7"/>
+                            <constraint firstItem="Zfx-O9-cG6" firstAttribute="centerX" secondItem="CkO-K6-HTK" secondAttribute="centerX" id="hCy-1a-6Xg"/>
+                            <constraint firstItem="qix-3P-OVL" firstAttribute="top" secondItem="lRZ-a1-1vP" secondAttribute="bottom" constant="5" id="iQ4-vJ-M55"/>
+                            <constraint firstItem="5cS-af-zeW" firstAttribute="leading" secondItem="CVr-f3-PxY" secondAttribute="leading" id="jCe-c2-Nxx"/>
+                            <constraint firstItem="Sx6-cR-qUj" firstAttribute="top" secondItem="Zfx-O9-cG6" secondAttribute="bottom" constant="10" id="ks6-C4-K6S"/>
+                            <constraint firstItem="Zfx-O9-cG6" firstAttribute="top" secondItem="qix-3P-OVL" secondAttribute="bottom" constant="5" id="l8U-mH-3Hl"/>
+                            <constraint firstItem="5cS-af-zeW" firstAttribute="top" secondItem="CVr-f3-PxY" secondAttribute="top" constant="10" id="tto-Ij-muJ"/>
+                            <constraint firstItem="dNV-UV-rzH" firstAttribute="leading" secondItem="CVr-f3-PxY" secondAttribute="leading" constant="5" id="wPC-dj-AG1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CVr-f3-PxY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ldA-IB-k18" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2525.5999999999999" y="31.934032983508249"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="K2r-PH-Viy">
@@ -98,4 +171,7 @@
             <point key="canvasLocation" x="52" y="686.80659670164926"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="like" width="128" height="128"/>
+    </resources>
 </document>

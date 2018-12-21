@@ -22,6 +22,7 @@
 		A0876D2721A8205F0005FEF5 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0876D2621A8205F0005FEF5 /* DetailViewController.m */; };
 		A08CA76021946CF7009E9CB7 /* BLAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A08CA75F21946CF7009E9CB7 /* BLAPI.m */; };
 		A098896721B189B5003B6FA0 /* BLVacancies.m in Sources */ = {isa = PBXBuildFile; fileRef = A098896621B189B5003B6FA0 /* BLVacancies.m */; };
+		A0A4425721CD31B7001122BC /* BLVacancyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4425621CD31B7001122BC /* BLVacancyInfoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		A08CA75F21946CF7009E9CB7 /* BLAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLAPI.m; sourceTree = "<group>"; };
 		A098896521B189B5003B6FA0 /* BLVacancies.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLVacancies.h; sourceTree = "<group>"; };
 		A098896621B189B5003B6FA0 /* BLVacancies.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLVacancies.m; sourceTree = "<group>"; };
+		A0A4425521CD31B7001122BC /* BLVacancyInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLVacancyInfoViewController.h; sourceTree = "<group>"; };
+		A0A4425621CD31B7001122BC /* BLVacancyInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLVacancyInfoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				A01DE6DE217A3AC600B2CE72 /* ViewController.m */,
 				A0876D2521A8205F0005FEF5 /* DetailViewController.h */,
 				A0876D2621A8205F0005FEF5 /* DetailViewController.m */,
+				A0A4425521CD31B7001122BC /* BLVacancyInfoViewController.h */,
+				A0A4425621CD31B7001122BC /* BLVacancyInfoViewController.m */,
 				A01DE6E0217A3AC600B2CE72 /* Main.storyboard */,
 				A01DE6E3217A3AC700B2CE72 /* Assets.xcassets */,
 				A01DE6E5217A3AC700B2CE72 /* LaunchScreen.storyboard */,
@@ -205,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A4425721CD31B7001122BC /* BLVacancyInfoViewController.m in Sources */,
 				A01DE6DF217A3AC600B2CE72 /* ViewController.m in Sources */,
 				A01DE6EA217A3AC700B2CE72 /* main.m in Sources */,
 				A014E8AC21BA852100AAE072 /* BLCompanyCell.m in Sources */,

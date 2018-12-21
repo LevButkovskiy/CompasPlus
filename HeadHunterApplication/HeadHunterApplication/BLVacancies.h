@@ -18,9 +18,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *dateOfPublishing;
 @property (nonatomic, strong) NSString *archived;
 
+//Salary
 @property (nonatomic, assign) long salaryFrom;
 @property (nonatomic, assign) long salaryTo;
 @property (nonatomic, strong) NSString *salaryCurrency;
+
+//Snippet
+@property (nonatomic, strong) NSString *snippetRequirement;
+@property (nonatomic, strong) NSString *snippetResponsibillity;
+
+//Adress
+@property (nonatomic, strong) NSString *street;
+@property (nonatomic, strong) NSString *city;
+@property (nonatomic, strong) NSString *building;
+@property (nonatomic, strong) NSString *summuryAdress;
+@property (nonatomic, strong) NSString *metro;
+
+//Contacts
+@property (nonatomic, strong) NSString *contactName;
+@property (nonatomic, strong) NSString *contactEmail;
+@property (nonatomic, strong) NSString *contactPhone;
+
 
 
 //id

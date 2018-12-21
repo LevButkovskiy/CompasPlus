@@ -119,6 +119,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     BLCompany *company = [_companies objectAtIndex:indexPath.row];
     [self loadVacancy:company];
     NSLog(@"%@", company.name);

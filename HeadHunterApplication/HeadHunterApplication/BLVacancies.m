@@ -16,19 +16,43 @@
         self.name = [dictionary objectForKey:@"name"];
         self.url = [dictionary objectForKey:@"url"];
         self.ID = [dictionary objectForKey:@"id"];
-        
-        NSString * tmpDate = [dictionary objectForKey:@"published_at"];
-        NSDateFormatter *dateFormatterTmp = [[NSDateFormatter alloc] init];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-
-        [dateFormatterTmp setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss+SSSS"];
-        NSDate *dateFromString = [dateFormatterTmp dateFromString:tmpDate];
-        [dateFormatter setDateFormat:@"dd.MM.yyyy"];
-        self.dateOfPublishing = [dateFormatter stringFromDate:dateFromString];
-        
-        
         self.archived = [dictionary objectForKey:@"archived"];
         
+        //Date
+        NSString * tmpDate = [dictionary objectForKey:@"published_at"];
+            NSDateFormatter *dateFormatterTmp = [[NSDateFormatter alloc] init];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatterTmp setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss+SSSS"];
+            NSDate *dateFromString = [dateFormatterTmp dateFromString:tmpDate];
+            [dateFormatter setDateFormat:@"dd.MM.yyyy"];
+            self.dateOfPublishing = [dateFormatter stringFromDate:dateFromString];
+        /*
+        NSDictionary *snippet = [dictionary objectForKey:@"snippet"];
+            self.snippetRequirement = [snippet objectForKey:@"requirement"]; //Опыт работы
+            self.snippetResponsibillity = [snippet objectForKey:@"responsibillity"]; //Задачи работника
+        
+        NSDictionary *adress = [dictionary objectForKey:@"adress"]; //Адрес компании
+            self.street = [adress objectForKey:@"street"];
+            self.city = [adress objectForKey:@"city"];
+            self.building = [adress objectForKey:@"building"];
+            self.summuryAdress = [adress objectForKey:@"raw"];
+            self.metro = [adress objectForKey:@"metro"];
+        
+        NSDictionary *contacts = [dictionary objectForKey:@"contacts"]; //Контакты
+            self.contactName = [contacts objectForKey:@"name"];
+            self.contactEmail = [contacts objectForKey:@"email"];
+            NSDictionary *phones = [contacts objectForKey:@"phones"];
+                NSDictionary *firstPhone = [phones objectForKey: 0];
+                    NSString *phoneCountry = [firstPhone objectForKey:@"country"];
+                    NSString *phoneCity = [firstPhone objectForKey:@"city"];
+                    NSString *phoneNumber = [firstPhone objectForKey:@"number"];
+                    self.contactPhone = [NSString stringWithFormat:@"%@%@%@", phoneCountry, phoneCity, phoneNumber];
+            
+        //snipped dictionary -> requirement - Опыт работы, responsibillity - Задачи работника ((strings)
+        //adress - street, city, building, raw(полностью streen, city, building), metro_stations (dictionary), description, lat, lng, metro
+        //contacts -> name, email, phones (dictionary)
+            //phones-> country+ city + number
+        */
         NSDictionary *salary = [dictionary objectForKey:@"salary"];
         if([salary isKindOfClass:[NSNull class]]){
             NSLog(@"ERROR: salary is null");
