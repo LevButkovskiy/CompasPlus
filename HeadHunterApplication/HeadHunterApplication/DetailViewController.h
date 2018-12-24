@@ -11,6 +11,7 @@
 #import "BLCompany.h"
 #import "BLVacancies.h"
 #import "BLVacancyCell.h"
+#import "BLVacancyInfoViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="1751.2" y="31.934032983508249"/>
         </scene>
-        <!--Vacancy Info-->
+        <!--Vacancy Info View Controller-->
         <scene sceneID="Uf0-c1-h5C">
             <objects>
-                <viewController id="7oR-fG-1zy" customClass="BLVacancyInfo" sceneMemberID="viewController">
+                <viewController id="7oR-fG-1zy" customClass="BLVacancyInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CkO-K6-HTK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,13 +118,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sx6-cR-qUj">
-                                <rect key="frame" x="325" y="615" width="45" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sx6-cR-qUj">
+                                <rect key="frame" x="325" y="617" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="Y2c-9X-OUW"/>
                                     <constraint firstAttribute="height" constant="45" id="a3R-nS-nmq"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="like"/>
+                                <state key="normal" title="Button" image="like_gray"/>
+                                <connections>
+                                    <action selector="likeButton:" destination="7oR-fG-1zy" eventType="touchUpInside" id="VVT-Iu-yug"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -147,6 +150,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CVr-f3-PxY"/>
                     </view>
+                    <connections>
+                        <outlet property="employeeTasksLabel" destination="dNV-UV-rzH" id="REx-WE-Cj7"/>
+                        <outlet property="likeButton" destination="Sx6-cR-qUj" id="Bep-pv-BYx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldA-IB-k18" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -172,6 +179,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="like" width="128" height="128"/>
+        <image name="like_gray" width="256" height="256"/>
     </resources>
 </document>

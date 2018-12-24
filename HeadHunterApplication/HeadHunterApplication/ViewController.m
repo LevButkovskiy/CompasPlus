@@ -81,14 +81,11 @@
         else{
             if(vacJson != nil){
                 NSArray *vacItems = [vacJson objectForKey:@"items"];
-                if([company.vacancies firstObject] == nil)
                 for (NSDictionary *vacItem in vacItems) {
                     BLVacancies *vacancy = [[BLVacancies alloc] initWithDictionary:vacItem];
                     NSLog(@"added vacancy");
                     [company.vacancies addObject: vacancy];
                 }
-                NSLog(@"");
-                if(company.vacancies.count != 0)
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self performSegueWithIdentifier:@"Detail" sender:company];
                 });
@@ -103,7 +100,6 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-   // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     BLCompanyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"companyCell"];
     BLCompany *company = [_companies objectAtIndex:indexPath.row];
     cell.company = company;
@@ -121,7 +117,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     BLCompany *company = [_companies objectAtIndex:indexPath.row];
-    [self loadVacancy:company];
+    if([company.vacancies firstObject] == nil){
+        [self loadVacancy:company];
+    }
+    else{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performSegueWithIdentifier:@"Detail" sender:company];
+        });
+    }
+    
     NSLog(@"%@", company.name);
 }
 

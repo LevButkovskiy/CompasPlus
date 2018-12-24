@@ -38,8 +38,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *contactName;
 @property (nonatomic, strong) NSString *contactEmail;
 @property (nonatomic, strong) NSString *contactPhone;
+@property (nonatomic, strong) NSString *firstElPhone;
+@property (nonatomic, strong) NSString *secondElPhone;
+@property (nonatomic, strong) NSString *thirdElPhone;
 
-
+@property(nonatomic, assign) BOOL liked;
 
 //id
 //дата публикации

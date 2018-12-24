@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BLVacancies.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *vacancyNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateOfPublishingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *salaryFromToLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *likeImage;
+
+@property (nonatomic, strong) BLVacancies * vacancy;
+
+
+- (void)setVacancy:(BLVacancies *)vacancy;
 
 @end
 

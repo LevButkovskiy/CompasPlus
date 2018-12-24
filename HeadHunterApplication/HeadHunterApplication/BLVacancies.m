@@ -26,33 +26,54 @@
             NSDate *dateFromString = [dateFormatterTmp dateFromString:tmpDate];
             [dateFormatter setDateFormat:@"dd.MM.yyyy"];
             self.dateOfPublishing = [dateFormatter stringFromDate:dateFromString];
-        /*
+        
         NSDictionary *snippet = [dictionary objectForKey:@"snippet"];
             self.snippetRequirement = [snippet objectForKey:@"requirement"]; //Опыт работы
-            self.snippetResponsibillity = [snippet objectForKey:@"responsibillity"]; //Задачи работника
+            if([_snippetRequirement isKindOfClass:[NSNull class]])
+                _snippetRequirement = @"Опыт работы не указан";
+            self.snippetResponsibillity = [snippet objectForKey:@"responsibility"]; //Обязаности работника
+                if(_snippetResponsibillity == nil)
+                    _snippetResponsibillity = @"Обязаности не указаны";
         
-        NSDictionary *adress = [dictionary objectForKey:@"adress"]; //Адрес компании
-            self.street = [adress objectForKey:@"street"];
-            self.city = [adress objectForKey:@"city"];
-            self.building = [adress objectForKey:@"building"];
-            self.summuryAdress = [adress objectForKey:@"raw"];
-            self.metro = [adress objectForKey:@"metro"];
+        NSDictionary *address = [dictionary objectForKey:@"address"]; //Адрес компании
+            self.street = [address objectForKey:@"street"];
+            self.city = [address objectForKey:@"city"];
+            self.building = [address objectForKey:@"building"];
+            self.summuryAdress = [address objectForKey:@"raw"];
+            if([self.summuryAdress isKindOfClass:[NSNull class]])
+                self.summuryAdress = [NSString stringWithFormat:@"%@, %@ %@", _city, _street, _building];
+            else if ([self.summuryAdress isKindOfClass:[NSNull class]])
+                self.summuryAdress = @"Адрес компании не указан";
+           // self.metro = [address objectForKey:@"metro"];
         
-        NSDictionary *contacts = [dictionary objectForKey:@"contacts"]; //Контакты
+       //Контакты
+        NSDictionary *contacts = [dictionary objectForKey:@"contacts"];
+        if([[dictionary objectForKey:@"contacts"] isKindOfClass:[NSNull class]]){
+            _contactName = @"Имя не указано";
+            _contactEmail = @"Email не указан";
+            _contactPhone = @"Телефон не указан";
+        }
+        else{
+        
             self.contactName = [contacts objectForKey:@"name"];
+            if([_contactName isKindOfClass:[NSNull class]]) _contactName = @"Имя не указано";
             self.contactEmail = [contacts objectForKey:@"email"];
+            if([_contactEmail isKindOfClass:[NSNull class]]) _contactEmail = @"Email не указан";
             NSDictionary *phones = [contacts objectForKey:@"phones"];
-                NSDictionary *firstPhone = [phones objectForKey: 0];
-                    NSString *phoneCountry = [firstPhone objectForKey:@"country"];
-                    NSString *phoneCity = [firstPhone objectForKey:@"city"];
-                    NSString *phoneNumber = [firstPhone objectForKey:@"number"];
-                    self.contactPhone = [NSString stringWithFormat:@"%@%@%@", phoneCountry, phoneCity, phoneNumber];
+            NSDictionary *firstPhone = [[phones objectEnumerator]nextObject];
+                self.firstElPhone = [firstPhone objectForKey:@"country"];
+                self.secondElPhone = [firstPhone objectForKey:@"city"];
+                self.thirdElPhone = [firstPhone objectForKey:@"number"];
+                self.contactPhone = [NSString stringWithFormat:@"+%@(%@)%@", _firstElPhone, _secondElPhone, _thirdElPhone];
+                if([_contactPhone isKindOfClass:[NSNull class]]){
+                    _contactPhone = @"Телефон не указан";
+                }
+        }
             
         //snipped dictionary -> requirement - Опыт работы, responsibillity - Задачи работника ((strings)
         //adress - street, city, building, raw(полностью streen, city, building), metro_stations (dictionary), description, lat, lng, metro
         //contacts -> name, email, phones (dictionary)
             //phones-> country+ city + number
-        */
         NSDictionary *salary = [dictionary objectForKey:@"salary"];
         if([salary isKindOfClass:[NSNull class]]){
             NSLog(@"ERROR: salary is null");
