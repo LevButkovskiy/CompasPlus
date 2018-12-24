@@ -22,6 +22,12 @@
 
 @implementation BLVacancyInfoViewController
 - (void)viewDidLoad {
+    if(_vacancy.liked == true){
+        [_likeButton setImage:[UIImage imageNamed:@"like_red"] forState:(UIControlStateNormal)];
+    }
+    else{
+        [_likeButton setImage:[UIImage imageNamed:@"like_gray"] forState:(UIControlStateNormal)];
+    }
     [super viewDidLoad];
     _isClicked = false;
     _vacancyNameLabel.text = _vacancy.name;
@@ -29,7 +35,6 @@
     _contactNameLabel.text = _vacancy.contactName;
     _phoneLabel.text = _vacancy.contactPhone;
     _employeeTasksLabel.text = [NSString stringWithFormat:@"Опыт: %@\n\nЗадачи работника: %@", _vacancy.snippetRequirement, _vacancy.snippetResponsibillity];
-    _vacancy.liked = false;
     // Do any additional setup after loading the view.
 }
 
