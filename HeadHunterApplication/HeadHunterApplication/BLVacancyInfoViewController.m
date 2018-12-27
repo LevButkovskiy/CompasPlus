@@ -34,7 +34,7 @@
     _addressLabel.text = _vacancy.summuryAdress;
     _contactNameLabel.text = _vacancy.contactName;
     _phoneLabel.text = _vacancy.contactPhone;
-    _employeeTasksLabel.text = [NSString stringWithFormat:@"Опыт: %@\n\nЗадачи работника: %@", _vacancy.snippetRequirement, _vacancy.snippetResponsibillity];
+    _employeeTasksLabel.text = [NSString stringWithFormat:@"Опыт: %@\n\nЗадачи работника: %@ \n\n%@", _vacancy.snippetRequirement, _vacancy.snippetResponsibillity, [self checkSalaryFrom: _vacancy.salaryFrom To:_vacancy.salaryTo]];
     // Do any additional setup after loading the view.
 }
 
@@ -56,6 +56,25 @@
 }
 -(void)viewDidDisappear:(BOOL)animated{
 
+}
+
+-(NSString *)checkSalaryFrom:(long)salaryFrom To:(long)salaryTo{
+    NSString *returnString;
+    if(salaryFrom == 0){
+        if(salaryTo == 0){
+            returnString =  [NSString stringWithFormat:@"%@", @"Зарплата не указана"];
+        }
+        else{
+            returnString = [NSString stringWithFormat:@"%@ %@ %ld %@",@"Зарплата:", @"до", salaryTo, @"RUR"];
+        }
+    }
+    else if (salaryTo == 0){
+        returnString = [NSString stringWithFormat:@"%@ %@ %ld %@",@"Зарплата:", @"от", salaryFrom, @"RUR"];
+    }
+    else {
+        returnString = [NSString stringWithFormat:@"%@ %@ %ld %@ %ld %@",@"Зарплата:", @"от", salaryFrom, @"до", salaryTo, @"RUR"];
+    }
+    return returnString;
 }
 
 @end

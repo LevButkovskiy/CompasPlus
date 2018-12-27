@@ -35,7 +35,11 @@
                 if(_snippetResponsibillity == nil)
                     _snippetResponsibillity = @"Обязаности не указаны";
         
-        NSDictionary *address = [dictionary objectForKey:@"address"]; //Адрес компании
+        NSDictionary *address = [dictionary objectForKey:@"address"];//Адрес компании
+        if([address isKindOfClass:[NSNull class]]){
+            self.summuryAdress = @"Адрес компании не указан";
+        }
+        else{
             self.street = [address objectForKey:@"street"];
             self.city = [address objectForKey:@"city"];
             self.building = [address objectForKey:@"building"];
@@ -45,6 +49,7 @@
             else if ([self.summuryAdress isKindOfClass:[NSNull class]])
                 self.summuryAdress = @"Адрес компании не указан";
            // self.metro = [address objectForKey:@"metro"];
+        }
         
        //Контакты
         NSDictionary *contacts = [dictionary objectForKey:@"contacts"];
@@ -54,7 +59,6 @@
             _contactPhone = @"Телефон не указан";
         }
         else{
-        
             self.contactName = [contacts objectForKey:@"name"];
             if([_contactName isKindOfClass:[NSNull class]]) _contactName = @"Имя не указано";
             self.contactEmail = [contacts objectForKey:@"email"];
