@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BLVacancies : NSObject
 
+//Основная информация
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *ID;
@@ -44,14 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, assign) BOOL liked;
 
-//id
-//дата публикации
-//в порядке публицации (самые свежие)
-//salary
-//archived
 - (id)initWithDictionary:(NSDictionary *)dictionary;
-
-
 
 @end
 

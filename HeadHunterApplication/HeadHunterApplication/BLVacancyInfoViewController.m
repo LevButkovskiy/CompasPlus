@@ -45,13 +45,36 @@
 
 
 - (IBAction)likeButton:(id)sender {
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    CGFloat width = CGRectGetWidth(screen);
+    CGFloat height = CGRectGetHeight(screen);
+    double sViewHight = 60;
+    SmileView *sView = [[[NSBundle mainBundle] loadNibNamed:@"SmileView" owner:self options:nil] objectAtIndex:0];
+    [self.view addSubview:sView];
     if(_vacancy.liked == true){
         [_likeButton setImage:[UIImage imageNamed:@"like_gray"] forState:(UIControlStateNormal)];
          _vacancy.liked = false;
+        sView.frame = CGRectMake(0, sViewHight, width, sViewHight);
+        sView.likedLabel.text = @"Больше не нравится";
+        [UIView animateWithDuration:1 animations:^{
+            sView.frame = CGRectMake(0, 0, width, sViewHight);
+        } completion:^(BOOL finished) {
+            sView.alpha = 0;
+        }];
     }
     else{
     [_likeButton setImage:[UIImage imageNamed:@"like_red"] forState:(UIControlStateNormal)];
      _vacancy.liked = true;
+        sView.frame = CGRectMake(0, 0, width, sViewHight);
+        sView.likedLabel.alpha = 1;
+        sView.likedLabel.text = @"Понравилось";
+        [UIView animateWithDuration:1 animations:^{
+            sView.frame = CGRectMake(0, sViewHight, width, sViewHight);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:1 animations:^{
+                sView.alpha = 0;
+            }];
+        }];
     }
 }
 -(void)viewDidDisappear:(BOOL)animated{

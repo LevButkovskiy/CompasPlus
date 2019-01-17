@@ -34,8 +34,8 @@
             self.snippetResponsibillity = [snippet objectForKey:@"responsibility"]; //Обязаности работника
                 if(_snippetResponsibillity == nil)
                     _snippetResponsibillity = @"Обязаности не указаны";
-        
-        NSDictionary *address = [dictionary objectForKey:@"address"];//Адрес компании
+        //Адрес
+        NSDictionary *address = [dictionary objectForKey:@"address"];
         if([address isKindOfClass:[NSNull class]]){
             self.summuryAdress = @"Адрес компании не указан";
         }
@@ -73,11 +73,8 @@
                     _contactPhone = @"Телефон не указан";
                 }
         }
-            
-        //snipped dictionary -> requirement - Опыт работы, responsibillity - Задачи работника ((strings)
-        //adress - street, city, building, raw(полностью streen, city, building), metro_stations (dictionary), description, lat, lng, metro
-        //contacts -> name, email, phones (dictionary)
-            //phones-> country+ city + number
+        
+        //Зарплата
         NSDictionary *salary = [dictionary objectForKey:@"salary"];
         if([salary isKindOfClass:[NSNull class]]){
             NSLog(@"ERROR: salary is null");
@@ -92,9 +89,7 @@
             if([[salary objectForKey:@"currency"] isKindOfClass:[NSNull class]])
                 NSLog(@"ERROR: salary Currency is null");
             else self.salaryCurrency = [salary objectForKey:@"currency"];
-
         }
-        
     }
     return self;
 }

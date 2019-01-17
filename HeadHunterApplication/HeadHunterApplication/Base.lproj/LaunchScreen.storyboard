@@ -17,17 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HeadHunter Application" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsj-8C-hzw">
-                                <rect key="frame" x="48" y="160" width="279" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="9jN-kd-iyx">
+                                <rect key="frame" x="67.5" y="213.5" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="gwU-nC-jsl"/>
+                                    <constraint firstAttribute="width" constant="240" id="oTG-XD-4pB"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tsj-8C-hzw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="140" id="hH6-Ko-fm7"/>
-                            <constraint firstItem="tsj-8C-hzw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kRp-dG-gHw"/>
+                            <constraint firstItem="9jN-kd-iyx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Qlt-75-V28"/>
+                            <constraint firstItem="9jN-kd-iyx" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ueb-c5-xHD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,4 +38,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="170.66667175292969" height="170.66667175292969"/>
+    </resources>
 </document>

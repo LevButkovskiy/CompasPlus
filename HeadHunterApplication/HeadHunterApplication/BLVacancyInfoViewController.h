@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "BLVacancies.h"
 #import "DetailViewController.h"
+#import "SmileView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
